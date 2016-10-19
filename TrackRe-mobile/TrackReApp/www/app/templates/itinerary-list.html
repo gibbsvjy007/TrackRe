@@ -1,0 +1,73 @@
+<md-list>
+    <md-list-item class="md-3-line" ng-repeat="itinerary in itineraries">
+        <div class="md-list-item-text" layout="row">
+            <div class="itinerary-main">
+                <div class="timings pull-left">
+                    <span class="startTime"> {{ itinerary.startTime | date:"HH:mm"}}</span>
+                    <span class="dash"> - </span>
+                    <span class="endTime"> {{ itinerary.endTime | date:"HH:mm" }}</span>
+                </div>
+                <div class="metadata pull-right">
+                    <span class="price">
+                            <i class="icon fa fa-eur"></i>
+                            <span class="amount"> 2.60 </span>
+                    </span>
+                    <span class="duration">
+                    	<span class="value"> {{ itinerary.duration | time }}</span>
+                    <span class="unit"> min </span>
+                    </span>
+                </div>
+            </div>
+            <div class="itinerary-summary clearfix" style="position: relative;">
+                <ul class="ul-none ul-inline-block" style="padding:0;">
+                    <!-- ngRepeat: leg in itinerary.legs -->
+                    <li class="leg ng-scope" ng-repeat="leg in itinerary.legs" style="display: inline-block;">
+                        <div class="legInfoBox pull-left">
+                            <div class="iconBox">
+                                <div ng-show="leg.mode == 'WALK'" aria-hidden="true" class="ng-hide"> <i class="walk material-icons ic-18">directions_walk</i> </div>
+                                <div ng-show="leg.mode == 'BUS'" aria-hidden="false" class=""> <i class="bus fa fa-bus ic-20"></i> </div>
+                                <div ng-show="leg.mode == 'TRAM'" aria-hidden="true" class="ng-hide"> <i class="tram fa fa-subway ic-20"></i> </div>
+                                <div ng-show="leg.mode == 'RAIL'" aria-hidden="true" class="ng-hide"> <i class="rail fa fa-train ic-20"></i> </div>
+                            </div>
+                            <div class="infoBox">
+                                <div ng-show="leg.mode == 'WALK'" aria-hidden="true" class="ng-hide"> <span class="legName small">walk</span> </div>
+                                <div ng-hide="leg.mode == 'WALK'" aria-hidden="false" class=""> <span class="legName small ng-binding"> N2 </span> </div>
+                                <div class="legDuration small ng-binding" style="font-size:10px;"> 2 min </div>
+                            </div>
+                        </div>
+                        <div class="nextIconBox pull-left" ng-hide="$last" aria-hidden="false">
+                            <span class="icon"> › </span>
+                        </div>
+                    </li>
+                    <!-- end ngRepeat: leg in itinerary.legs -->
+                    <li class="leg ng-scope" ng-repeat="leg in itinerary.legs" style="display: inline-block;">
+                        <div class="legInfoBox pull-left">
+                            <div class="iconBox">
+                                <div ng-show="leg.mode == 'WALK'" aria-hidden="false" class=""> <i class="walk material-icons ic-18">directions_walk</i> </div>
+                                <div ng-show="leg.mode == 'BUS'" aria-hidden="true" class="ng-hide"> <i class="bus fa fa-bus ic-20"></i> </div>
+                                <div ng-show="leg.mode == 'TRAM'" aria-hidden="true" class="ng-hide"> <i class="tram fa fa-subway ic-20"></i> </div>
+                                <div ng-show="leg.mode == 'RAIL'" aria-hidden="true" class="ng-hide"> <i class="rail fa fa-train ic-20"></i> </div>
+                            </div>
+                            <div class="infoBox">
+                                <div ng-show="leg.mode == 'WALK'" aria-hidden="false" class=""> <span class="legName small">walk</span> </div>
+                                <div ng-hide="leg.mode == 'WALK'" aria-hidden="true" class="ng-hide"> <span class="legName small ng-binding">  </span> </div>
+                                <div class="legDuration small ng-binding" style="font-size:10px;"> 6 min </div>
+                            </div>
+                        </div>
+                        <div class="nextIconBox pull-left ng-hide" ng-hide="$last" aria-hidden="true">
+                            <span class="icon"> › </span>
+                        </div>
+                    </li>
+                    <!-- end ngRepeat: leg in itinerary.legs -->
+                </ul>
+                <div class="details clearfix style1" style="">
+                    <span class="showNextInfoWindow" ng-click="showNextInfoWindow(itinerary.ID,itinerary.legs.length); $event.stopPropagation();" role="button" tabindex="0">  STEPS
+                        </span>
+                    <span class="btnDetails clearfix">
+                            <span class="showDetail" ng-click="btnDetailsHandler($event); $event.stopPropagation();" role="button" tabindex="0">DETAILS</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </md-list-item>
+</md-list>

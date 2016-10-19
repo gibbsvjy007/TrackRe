@@ -1,0 +1,50 @@
+.pull-right {
+    float: right;
+}
+
+.dark-orange {
+    color: var(--dark-orange);
+}
+
+.bg-dark-orange {
+    background-color: var(--dark-orange);
+}
+
+.brand {
+    color: var(--brand);
+}
+
+.walk {
+    color: var(--walk);
+}
+
+.bus {
+    color: var(--bus);
+}
+
+.tram {
+    color: var(--tram);
+}
+
+.rail {
+    color: var(--rail);
+}
+
+.walk.modeBg {
+    background-color: var(--walk);
+}
+
+.bus.modeBg {
+    background-color: var(--bus);
+}
+
+.tram.modeBg {
+    background-color: var(--tram);
+}
+
+.rail.modeBg {
+    background-color: var(--rail);
+}
+.font-20{
+	font-size: 20px;
+}

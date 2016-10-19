@@ -1,0 +1,15 @@
+ [md-page-header] {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+ } 
+ 
+ header md-toolbar:not(.md-menu-toolbar) {
+  background-color: var(--dark-orange);
+ }
+ 
+ .md-button.md-icon-button {
+  font-size: 20px;
+ }
+
