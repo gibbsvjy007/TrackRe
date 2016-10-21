@@ -4,3 +4,6 @@
 .margin-top-56{
 	margin-top: 56px;
 }
+.md-sidenav-left{
+	z-index: 101;
+}

@@ -9,19 +9,27 @@
             $scope.itineraries = $itinerary.getItinerary();
             self.fromTo = $itinerary.getItineraryFromTo();
         };
-        self.showItineraryDetails = function($event, itineraryID) {
-            var $target = $event.currentTarget;
-            self.itineraryID = itineraryID;
-            $rootScope.map = null;
-            setTimeout(function() {
-                $rootScope.map = new google.maps.Map(document.getElementById('itinerary-map'), mapOptions);
+       	$rootScope.map = null;
+        self.showItineraryDetails = function($event, itineraryID) {            
+        	$rootScope.map = null;
+        	self.showMap = false;
+            var $target = $event.currentTarget;            
+            self.itineraryID = itineraryID;            
+            $('.itinerary-list').find('.itinerary-detail').removeClass('active');
+            $($target).parents('.itinerary-summary').siblings('.itinerary-detail').addClass('active').slideDown('slow');
+            setTimeout(function() {            	
+                //if($rootScope.map === null){
+                	var $element = $($($target).parents('.itinerary-summary').siblings('.itinerary-detail').find('#itinerary-map'))[0];
+                	$rootScope.map = new google.maps.Map($element, mapOptions);	
+                //}                
                 google.maps.event.addListenerOnce($rootScope.map, 'idle', function() {
                     // do something only the first time the map is loaded
                     $gmap.showItinerary(self.itineraryID);
                 });
-            }, 4000);
-            // $rootScope.$emit("callInitiMap", {});
-            $($target).parents('.itinerary-summary').siblings('.itinerary-detail').slideToggle('slow');
+            }, 3000);
+            // $rootScope.$emit("callInitiMap", {});            
+            //$($target).parents('.itinerary-summary').siblings('.itinerary-detail').slideToggle('slow');
+            //$($target).parents('.md-3-line').siblings('.itinerary-summary').find('.itinerary-detail').slideUp('slow');
         };
         self.showItineraryMap = function($event) {
             $event.preventDefault();

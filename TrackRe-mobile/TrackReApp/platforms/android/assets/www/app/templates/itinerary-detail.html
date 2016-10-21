@@ -1,95 +1,96 @@
-<md-button ng-click="showItineraryMap($event)" class="btn-map" ng-show="!showMap">MAP</md-button>
-<md-button ng-click="showItineraryList($event)" class="btn-routes" ng-show="showMap">LIST</md-button>
-
-<table width="100%" ng-repeat="leg in itinerary.legs"  ng-hide="showMap" ng-init="prevLeg = itinerary.legs[$index-1]">
-    <!-- START + MID STOP ROW -->
-    <tr class="mainStopRow trHover" ng-click="zoomMainMarker(itinerary.ID, leg.from.stopId)">
-        <!-- Left Col -->
-        <td class="leftCol">
-            <div ng-hide="$first" class="timeDim"> {{prevLeg.to.arrival | date:'HH:mm' }} </div>
-            <div class="timeBold"> {{leg.from.departure | date:'HH:mm' }} </div>
-        </td>
-        <!-- Mid Col -->
-        <td class="midCol">
-            <div ng-hide="$first" ng-class="prevLeg.mode|lowercase" class="legLine top"> </div>
-            <div ng-show="$first" ng-class="leg.mode|lowercase" class="stopIcon leaf start">A</div>
-            <div ng-show="!$first" ng-class="leg.mode|lowercase" class="stopIcon"></div>
-            <div ng-class="leg.mode|lowercase" class="legLine bot"> </div>
-        </td>
-        <!-- Right Col -->
-        <td class="rightCol">
-            <div ng-class="{start:$first}" class="stopName">{{leg.from.name}}</div>
-        </td>
-    </tr>
-    <!-- LEG ROW -->
-    <tr class="legRow trHover" ng-click="zoomPolyline(itinerary.ID, $index)">
-        <td class="leftCol">
-        </td>
-        <!-- MID COL LEG -->
-        <td class="midCol">
-            <div ng-class="leg.mode|lowercase" class="legLine"></div>
-        </td>
-        <td class="rightCol legDescription">
-            <div ng-show="leg.mode == 'WALK'">
-                <div class="legMainData">
-                    <span class="modeName" ng-class="leg.mode|lowercase"> <i class="walk material-icons ic-18">directions_walk</i>  </span>
+<div>
+    <md-button ng-click="showItineraryMap($event)" class="btn-map pull-right" ng-show="!showMap">MAP</md-button>
+    <md-button ng-click="showItineraryList($event)" class="btn-routes pull-right" ng-show="showMap">LIST</md-button>
+    <table width="100%" ng-repeat="leg in itinerary.legs" ng-hide="showMap" ng-init="prevLeg = itinerary.legs[$index-1]">
+        <!-- START + MID STOP ROW -->
+        <tr class="mainStopRow trHover" ng-click="zoomMainMarker(itinerary.ID, leg.from.stopId)">
+            <!-- Left Col -->
+            <td class="leftCol">
+                <div ng-hide="$first" class="timeDim"> {{prevLeg.to.arrival | date:'HH:mm' }} </div>
+                <div class="timeBold"> {{leg.from.departure | date:'HH:mm' }} </div>
+            </td>
+            <!-- Mid Col -->
+            <td class="midCol">
+                <div ng-hide="$first" ng-class="prevLeg.mode|lowercase" class="legLine top"> </div>
+                <div ng-show="$first" ng-class="leg.mode|lowercase" class="stopIcon leaf start">A</div>
+                <div ng-show="!$first" ng-class="leg.mode|lowercase" class="stopIcon"></div>
+                <div ng-class="leg.mode|lowercase" class="legLine bot"> </div>
+            </td>
+            <!-- Right Col -->
+            <td class="rightCol">
+                <div ng-class="{start:$first}" class="stopName">{{leg.from.name}}</div>
+            </td>
+        </tr>
+        <!-- LEG ROW -->
+        <tr class="legRow trHover" ng-click="zoomPolyline(itinerary.ID, $index)">
+            <td class="leftCol">
+            </td>
+            <!-- MID COL LEG -->
+            <td class="midCol">
+                <div ng-class="leg.mode|lowercase" class="legLine"></div>
+            </td>
+            <td class="rightCol legDescription">
+                <div ng-show="leg.mode == 'WALK'">
+                    <div class="legMainData">
+                        <span class="modeName" ng-class="leg.mode|lowercase"> <i class="walk material-icons ic-18">directions_walk</i>  </span>
+                    </div>
+                    <div class="legMetaData">
+                        <span class="legDuration"> About {{leg.duration/60|number:0}} min </span>
+                    </div>
                 </div>
-                <div class="legMetaData">
-                    <span class="legDuration"> About {{leg.duration/60|number:0}} min </span>
+                <div ng-hide="leg.mode == 'WALK'">
+                    <div class="legMainData">
+                        <span class="modeName modeBorder" ng-class="leg.mode|lowercase">{{leg.route}}</span>
+                        <span class="headingTowardsArrow"> &#8674;  </span>
+                        <span class="headingTowardsName"> {{leg.headsign}} </span>
+                    </div>
+                    <div class="legMetaData " style="display:inline-block;">
+                        <i class="downArrow toggle-itinerary-interStops material-icons ic-24 pull-left">keyboard_arrow_down</i>
+                        <span class="legDuration">  {{leg.duration/60|number:0}} min </span>
+                        <span class="noInterStops">({{leg.interStops.length}} Stops)  </span>
+                    </div>
                 </div>
-            </div>
-            <div ng-hide="leg.mode == 'WALK'">
-                <div class="legMainData">
-                    <span class="modeName modeBorder" ng-class="leg.mode|lowercase">{{leg.route}}</span>
-                    <span class="headingTowardsArrow"> &#8674;  </span>
-                    <span class="headingTowardsName"> {{leg.headsign}} </span>
+            </td>
+        </tr>
+        <!-- INTER STOPS ROW -->
+        <tr class="interStopsRow">
+            <td colspan="3">
+                <div class="itinerary-interStops">
+                    <table>
+                        <tr ng-repeat="interStop in leg.interStops">
+                            <td class="leftCol">
+                            </td>
+                            <td class="midCol inter">
+                                <div ng-class="leg.mode|lowercase" class="legLine"></div>
+                                <div ng-class="leg.mode|lowercase" class="stopIcon interStop"></div>
+                            </td>
+                            <td class="rightCol">
+                                <div class="interStopName"> {{interStop.name}} </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="legMetaData " style="display:inline-block;">
-                    <i class="downArrow toggle-itinerary-interStops material-icons ic-24 pull-left">keyboard_arrow_down</i>
-                    <span class="legDuration">  {{leg.duration/60|number:0}} min </span>
-                    <span class="noInterStops">({{leg.interStops.length}} Stops)  </span>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <!-- INTER STOPS ROW -->
-    <tr class="interStopsRow">
-        <td colspan="3">
-            <div class="itinerary-interStops">
-                <table>
-                    <tr ng-repeat="interStop in leg.interStops">
-                        <td class="leftCol">
-                        </td>
-                        <td class="midCol inter">
-                            <div ng-class="leg.mode|lowercase" class="legLine"></div>
-                            <div ng-class="leg.mode|lowercase" class="stopIcon interStop"></div>
-                        </td>
-                        <td class="rightCol">
-                            <div class="interStopName"> {{interStop.name}} </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </td>
-    </tr>
-    <!-- END STOP ROW -->
-    <tr class="mainStopRow trHover" ng-show="$last" ng-click="zoomMainMarker(itinerary.ID, leg.to.stopId)">
-        <!-- Left Col -->
-        <td class="leftCol">
-            <div class="timeBold">{{leg.to.arrival | date:'HH:mm' }}</div>
-        </td>
-        <!-- Mid Col -->
-        <td class="midCol">
-            <div ng-class="leg.mode|lowercase" class="legLine top"></div>
-            <div class="stopIcon leaf end">B</div>
-        </td>
-        <!-- Right Col -->
-        <td class="rightCol">
-            <div class="stopName end">{{leg.to.name}}</div>
-        </td>
-    </tr>
-</table>
-<!-- Toggle to MAP -->
-<div ng-show="showMap" class="itinerary-map">
-	 <div id="itinerary-map"></div>
+            </td>
+        </tr>
+        <!-- END STOP ROW -->
+        <tr class="mainStopRow trHover" ng-show="$last" ng-click="zoomMainMarker(itinerary.ID, leg.to.stopId)">
+            <!-- Left Col -->
+            <td class="leftCol">
+                <div class="timeBold">{{leg.to.arrival | date:'HH:mm' }}</div>
+            </td>
+            <!-- Mid Col -->
+            <td class="midCol">
+                <div ng-class="leg.mode|lowercase" class="legLine top"></div>
+                <div class="stopIcon leaf end">B</div>
+            </td>
+            <!-- Right Col -->
+            <td class="rightCol">
+                <div class="stopName end">{{leg.to.name}}</div>
+            </td>
+        </tr>
+    </table>
+    <!-- Toggle to MAP -->
+    <div ng-show="showMap" class="itinerary-map">
+        <div id="itinerary-map"></div>
+    </div>
 </div>
