@@ -1,0 +1,86 @@
+md-content.md-dashboard-content {
+ top: 55px;
+}
+
+.md-dashboard-content md-card {
+ position: absolute;
+ z-index: 1;
+ margin: 10px 4px;
+}
+
+.md-dashboard-content md-card md-card-content {
+ padding: 10px;
+}
+
+.md-dashboard-content md-input-container {
+ margin: 0;
+}
+
+.md-dashboard-content md-autocomplete {
+ height: 50px;
+ min-width: 250px;
+}
+
+.md-dashboard-content md-card md-card-content .md-media-xl {
+ width: 100%;
+ max-height: 200px;
+ height: auto;
+}
+
+.md-dashboard-content md-card md-autocomplete-wrap {
+ box-shadow: none;
+}
+
+.md-dashboard-content md-card md-autocomplete-wrap input {
+ border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+ padding: 5px;
+}
+
+.md-dashboard-content .depart-time {
+ margin-top: 5px;
+}
+
+.md-dashboard-content .depart-time md-input-container {
+ width: 50%;
+}
+
+.md-dashboard-content .depart-time md-input-container:first-child {
+ margin-right: 10px;
+}
+
+.md-dashboard-content md-card md-card-actions {
+ justify-content: center;
+ margin: 0;
+ margin-right: -10px;
+}
+
+.md-dashboard-content md-card .btn-search {
+ margin-top: 15px;
+}
+
+.md-dashboard-content md-card .btn-search button {
+ color: var(--dark-orange);
+ font-size: 14px;
+ margin-right: -12px;
+}
+.md-dashboard-content md-autocomplete button{
+	display: none;
+}
+.map-container {
+ width: 100%;
+ height: 100%;
+}
+
+#map {
+ width: 100%;
+ height: 90vh;
+}
+
+.point-on-map md-toolbar{
+	background-color: transparent;
+	color: var(--black-500);
+	border-bottom: 2px solid var(--dark-orange);
+}
+.fab-dash{
+	background-color: var(--orange) !important;
+}

@@ -1,0 +1,19 @@
+:root {
+    /*colors*/
+    --black-200: #222222;
+    --black-500: #555555;
+    --black-800: #888888;
+    --dark-orange: #d6594a;
+    --orange: #e56455;
+    --brand-color: #334D5C;
+    --primary: #e04836;
+    --walk: #334D5C;
+    --bus: #daa520;
+    --tram: #45B29D;
+    --rail: #DF5A49;
+    /*Grey*/
+    --grey-300: #E0E0E0;
+    --grey-500: #9E9E9E;
+    /*Width*/
+    --fullwidth: 100%;
+}
