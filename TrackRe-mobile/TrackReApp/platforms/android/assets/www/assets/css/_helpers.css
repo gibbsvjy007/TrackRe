@@ -1,0 +1,130 @@
+.pull-right {
+    float: right;
+}
+
+.dark-orange {
+    color: var(--dark-orange);
+}
+
+.bg-dark-orange {
+    background-color: var(--dark-orange);
+}
+
+.brand {
+    color: var(--brand);
+}
+
+.walk {
+    color: var(--walk);
+}
+
+.bus {
+    color: var(--bus);
+}
+
+.tram {
+    color: var(--tram);
+}
+
+.rail {
+    color: var(--rail);
+}
+
+.walk.modeBg {
+    background-color: var(--walk);
+}
+
+.bus.modeBg {
+    background-color: var(--bus);
+}
+
+.tram.modeBg {
+    background-color: var(--tram);
+}
+
+.rail.modeBg {
+    background-color: var(--rail);
+}
+
+.walk.modeBorder {
+    border: 1px solid var(--walk) !important;
+}
+
+.bus.modeBorder {
+    border: 1px solid var(--bus) !important;
+}
+
+.tram.modeBorder {
+    border: 1px solid var(--tram) !important;
+}
+
+.rail.modeBorder {
+    border: 1px solid var(--rail) !important;
+}
+
+.stopIcon {
+    background-color: #ddd;
+}
+
+.stopIcon.walk {
+    background-color: var(--walk) !important;
+}
+
+.stopIcon.bus {
+    background-color: var(--bus) !important;
+}
+
+.stopIcon.tram {
+    background-color: var(--tram) !important;
+}
+
+.stopIcon.rail {
+    background-color: var(--rail) !important;
+}
+
+.legLine {
+    border-right-color: #ddd;
+}
+
+.legLine.walk {
+    border-right-color: var(--walk) !important;
+    border-right-style: dotted !important;
+}
+
+.legLine.bus {
+    border-right-color: var(--bus) !important;
+}
+
+.legLine.tram {
+    border-right-color: var(--tram) !important;
+}
+
+.legLine.rail {
+    border-right-color: var(--rail) !important;
+}
+
+.font-10 {
+    font-size: 10px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.small {
+    font-size: 85%;
+}
+
+.bold {
+    font-weight: bold;
+}
+.absolute{
+    position: absolute;
+}
+.relative{
+    position: relative;
+}

@@ -1,0 +1,239 @@
+.itinerary-content {
+    margin-top: 48px;
+}
+
+.itinerary-list md-list-item {
+    cursor: pointer;
+    background-color: #f9f9f9;
+    outline: none !important;
+    position: relative;
+    padding: 12px 0px 0px 0px;
+    border-bottom: 5px solid #eee;
+}
+
+.itinerary-list .md-subheader {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+    z-index: 100;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.itinerary-list .md-subheader ._md-subheader-inner {
+    padding: 10px 16px;
+}
+
+.itinerary-list md-divider {
+    margin-top: 48px;
+    margin-left: 0px;
+    border-top-width: 2px;
+}
+
+.itinerary-list .timings {
+    font-size: 1.3em;
+    color: #334D5C;
+}
+
+.itinerary-list .metadata .price,
+.itinerary-list .metadata .unit {
+    color: #999;
+    margin-right: 15px;
+}
+
+.itinerary-list .metadata .value {
+    color: #555;
+}
+
+.itinerary-list .md-list-item-text {
+    width: 100%;
+}
+
+.itinerary-list .itinerary-main,
+.itinerary-list .itinerary-summary {
+    padding: 1px 10px;
+}
+
+.itinerary-list .itinerary-summary .legInfoBox {
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.itinerary-list .itinerary-summary .nextIconBox {
+    display: inline-block;
+    padding: 5px;
+    padding-top: 25px;
+}
+
+.itinerary-list .itinerary-summary .leg {
+    text-align: center;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.itinerary-list .itinerary-summary .legName {
+    color: #334D5C;
+    font-weight: bold;
+}
+
+.itinerary-list .itinerary-summary .legDuration {
+    color: #666;
+}
+
+.itinerary-list .itinerary-summary .nextIconBox .icon {
+    color: #999;
+    font-size: 22px;
+}
+
+.itinerary-list .button-block .md-button {
+    min-width: 75px;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.itinerary-list .ul-itinerary {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.itinerary-list .button-block .btn-steps {
+    color: #999;
+}
+
+.itinerary-list .button-block .btn-details {
+    color: #e56455;
+}
+
+.itinerary-list .itinerary-detail {
+    display: none !important;
+    background-color: #fff;
+}
+
+.itinerary-list .itinerary-detail .leftCol {
+    width: 50px;
+    text-align: right;
+    position: relative;
+}
+
+.itinerary-list .itinerary-detail .midCol {
+    position: relative;
+    width: 40px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.itinerary-list .itinerary-detail .midCol.inter {
+    padding: 5px 0;
+}
+
+.itinerary-list .itinerary-detail .rightCol.legDescription {
+    padding: 10px 0;
+}
+
+.itinerary-list .itinerary-detail .stopIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: inline-block;
+    position: relative;
+    z-index: 6;
+}
+
+.itinerary-list .itinerary-detail .stopIcon.interStop {
+    width: 10px;
+    height: 10px;
+}
+
+.itinerary-list .itinerary-detail .stopIcon.leaf {
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #e56455 !important;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.itinerary-list .itinerary-detail .legLine {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-right: 4px solid red;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.itinerary-list .itinerary-detail .legLine.top {
+    bottom: 50%;
+}
+
+.itinerary-list .itinerary-detail .legLine.bot {
+    top: 50%;
+}
+
+.itinerary-list .itinerary-detail .timeBold {
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+.itinerary-list .itinerary-detail .stopName {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.interStopName {
+    color: #999;
+    font-size: 0.9em;
+    height: 1.4em;
+    overflow: hidden;
+}
+
+.itinerary-list .itinerary-detail .timeDim {
+    color: #999;
+    font-size: 0.8em;
+    position: absolute;
+    right: 0;
+    margin-top: -12px;
+}
+
+.itinerary-list .btn-map {
+    background-color: #e56455;
+    color: #fff;
+    float: right !important;
+    border-radius: 40px;
+    padding: 0;
+    min-height: 30px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    z-index: 99;    
+    /* top: 0px; */
+    margin-top: 10px;
+}
+
+.itinerary-list .btn-routes {
+    background-color: #e56455;
+    color: #fff;    
+    border-radius: 40px;
+    padding: 0;
+    min-height: 30px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    z-index: 99;
+    right: 0;    
+    margin-top: 10px;
+}
+
+.itinerary-list .itinerary-map #itinerary-map {
+    width: 100%;
+    height: 50vh;
+}
+
+.itinerary-detail.active{
+	display: block !important;
+}

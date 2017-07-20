@@ -1,0 +1,19 @@
+<md-sidenav md-swipe-left="onSwipeLeftMenu()" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <header>
+    <div md-header-picture-sidebar></div>
+  </header>
+  <md-list>
+    <md-list-item md-ripple-size="partial" class="custom-sidebar" ng-repeat="link in links" ng-click="openLinkMaterial(link.datahref)">
+      <md-icon class="icon-sidebar" ng-class="link.icon"></md-icon>
+      <p>{{link.title}}</p>
+    </md-list-item>    
+    <md-divider></md-divider>
+    <md-list-item md-ripple-size="partial" class="custom-sidebar" ng-repeat="sublink in sublinks" ng-click="openLinkMaterial(link.datahref)">
+      <p>{{sublink.title}}</p>
+    </md-list-item>
+    <md-list-item md-ripple-size="partial" class="custom-sidebar pull-right">
+      <p class="version">{{version}}</p>
+    </md-list-item>
+  </md-list>
+</md-sidenav>
+

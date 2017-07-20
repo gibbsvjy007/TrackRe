@@ -1,0 +1,57 @@
+<ng-include src="'app/templates/header.html'"></ng-include>
+<md-content class="md-dashboard-content" ng-init="initialize()">
+    <md-card style="width: 97%;">
+        <md-card-content layout="row">
+            <div class="md-media-xl card-media">
+                <form ng-submit="$event.preventDefault()" name="searchForm">
+                    <md-autocomplete required ng-disabled="false" md-no-cache="false" md-min-length="2" md-input-name="fromName" md-search-text="fromName" md-selected-item="fromSelectedItem" md-input-id="fromName" md-search-text-change="fromTextChanged(fromName)" md-items="item in autoComplete(fromName)" md-selected-item-change="fromItemChanged(item)" md-item-text="item.name" placeholder="From where?" aria-disabled="false" ng-hide="isSlidup">
+                        <md-item-template>
+                            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
+                        </md-item-template>
+                        <md-not-found>
+                            No states matching "{{searchText}}" were found.
+                        </md-not-found>
+                        <div ng-messages="searchForm.fromName.$error">
+                            <div ng-message="required"></div>
+                        </div>
+                    </md-autocomplete>
+                    <md-autocomplete required md-input-name="toName" ng-disabled="false" md-no-cache="true" md-min-length="2" md-search-text="toName" md-selected-item="toSelectedItem" md-input-id="toName" md-search-text-change="toTextChanged(toName)" md-items="item in autoComplete(toName)" md-selected-item-change="toItemChanged(item)" md-item-text="item.name" placeholder="To where?" placeholder="To where?">
+                        <md-item-template>
+                            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
+                        </md-item-template>
+                        <md-not-found>
+                            No states matching "{{searchText}}" were found.
+                        </md-not-found>
+                        <div ng-messages="searchForm.toName.$error">
+                            <div ng-message="required"></div>
+                        </div>
+                    </md-autocomplete>
+                    <div layout="row" class="depart-time" ng-hide="isSlidup">
+                        <md-input-container>
+                            <md-select ng-model="selectedDirection" md-on-close="directionSelected(selectedDirection)" ng-model-options="{trackBy: '$value.id'}" aria-label="Select Direction: Depart">
+                                <md-option ng-repeat="dir in directions" ng-value="dir">{{dir.name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container>
+                            <md-select ng-model="selectedTime" md-on-close="timeSelected(selectedTime)" ng-model-options="{trackBy: '$value.id'}" aria-label="Select Time: Now">
+                                <md-option ng-repeat="time in timings" ng-value="time">{{time.name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </form>                
+            </div>
+            <md-card-actions layout="column">
+                <md-button class="md-icon-button" aria-label="Slide" ng-click="slideToggle()">
+                    <i class="fa dark-orange" ng-class="isSlidup ? 'fa-angle-double-down' : 'fa-angle-double-up'"></i>
+                </md-button>
+            </md-card-actions>
+        </md-card-content>
+    </md-card>
+    <!-- Rendering map -->
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+    <md-button class="md-fab md-fab-bottom-left fab-dash" aria-label="Add" ng-click="showItineraryList($event)">
+        <md-icon class="fa fa-search font-20"></md-icon>
+    </md-button>
+</md-content>

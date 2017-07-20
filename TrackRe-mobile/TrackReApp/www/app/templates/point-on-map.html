@@ -1,0 +1,18 @@
+<md-dialog aria-label="Point on map" class="point-on-map">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Point on map</h2>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <md-list flex>
+      <md-list-item ng-click="hide()">
+        <div>From</div>
+      </md-list-item>
+      <md-list-item ng-click="toHereOnMapTouch($event)">
+        <div>To</div>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+</md-dialog>
+
